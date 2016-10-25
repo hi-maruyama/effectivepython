@@ -24,4 +24,3 @@ from sys import stdout as STDOUT
 import sys
 print(sys.version_info)
 print(sys.version)
-#aaa

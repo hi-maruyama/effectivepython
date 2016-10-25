@@ -23,7 +23,7 @@ from sys import stdout as STDOUT
 # Example 1
 names = ['Socrates', 'Archimedes', 'Plato', 'Aristotle']
 names.sort(key=lambda x: len(x))
-print(names)
+# print(names)
 
 
 # Example 2
@@ -41,33 +41,33 @@ increments = [
     ('blue', 17),
     ('orange', 9),
 ]
-result = defaultdict(log_missing, current)
-print('Before:', dict(result))
-for key, amount in increments:
-    result[key] += amount
-print('After: ', dict(result))
-
+# result = defaultdict(log_missing, current)
+# print('Before:', dict(result))
+# for key, amount in increments:
+#     result[key] += amount
+# print('After: ', dict(result))
+#
 
 # Example 4
-def increment_with_report(current, increments):
-    added_count = 0
-
-    def missing():
-        nonlocal added_count  # Stateful closure
-        added_count += 1
-        return 0
-
-    result = defaultdict(missing, current)
-    for key, amount in increments:
-        result[key] += amount
-
-    return result, added_count
-
-
-# Example 5
-result, count = increment_with_report(current, increments)
-assert count == 2
-print(result)
+# def increment_with_report(current, increments):
+#     added_count = 0
+#
+#     def missing():
+#         nonlocal added_count  # Stateful closure
+#         added_count += 1
+#         return 0
+#
+#     result = defaultdict(missing, current)
+#     for key, amount in increments:
+#         result[key] += amount
+#
+#     return result, added_count
+#
+#
+# # Example 5
+# result, count = increment_with_report(current, increments)
+# assert count == 2
+# print(result)
 
 
 # Example 6
@@ -80,13 +80,13 @@ class CountMissing(object):
         return 0
 
 
-# Example 7
-counter = CountMissing()
-result = defaultdict(counter.missing, current)  # Method reference
-for key, amount in increments:
-    result[key] += amount
-assert counter.added == 2
-print(result)
+# # Example 7
+# counter = CountMissing()
+# result = defaultdict(counter.missing, current)  # Method reference
+# for key, amount in increments:
+#     result[key] += amount
+# assert counter.added == 2
+# print(result)
 
 
 # Example 8
@@ -98,9 +98,9 @@ class BetterCountMissing(object):
         self.added += 1
         return 0
 
-counter = BetterCountMissing()
-counter()
-assert callable(counter)
+# counter = BetterCountMissing()
+# counter()
+# assert callable(counter)
 
 
 # Example 9
